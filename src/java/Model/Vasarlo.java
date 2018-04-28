@@ -5,11 +5,25 @@
  */
 package Model;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
 /**
  *
  * @author Cressida
  */
 public class Vasarlo {
+    
+    private String nev;
+    private String password;
+    private ArrayList<Alkatresz> alkatreszek;
+    
+    public Vasarlo(String nev, String password){
+        
+        this.alkatreszek = new ArrayList<>();
+        this.nev = nev;
+        this.password = password;       
+    }
 
     /**
      * @param nev the nev to set
@@ -24,26 +38,7 @@ public class Vasarlo {
     public void setPassword(String password) {
         this.password = password;
     }
-        private String nev;
-    private String password;
-//    private static Vector alkatreszek = new Vector();
-//    private static Vector lehetsegesAlkatreszek = new Vector();
-//    
-    public Vasarlo(String nev, String password){
-        
-        this.nev = nev;
-        this.password = password;
-       
-    }
-    
-//    static
-//    {
-//        getLehetsegesAlkatreszek().add(new Alkatresz("fluxuskondenzator",500));
-//        getLehetsegesAlkatreszek().add(new Alkatresz("videokartya",1000));
-//        getLehetsegesAlkatreszek().add(new Alkatresz("vincseszter",500));
-//        getLehetsegesAlkatreszek().add(new Alkatresz("processzor",100));
-//    }
-//    
+     
            /**
      * @return the nev
      */
@@ -58,6 +53,20 @@ public class Vasarlo {
         return password;
     }
     
+        /**
+     * @return the alkatreszek
+     */
+    public ArrayList<Alkatresz> getAlkatreszek() {
+        return alkatreszek;
+    }
+
+    /**
+     * @param alkatreszek the alkatreszek to set
+     */
+    public void setAlkatreszek(ArrayList<Alkatresz> alkatreszek) {
+        this.alkatreszek = alkatreszek;
+    }
+    
     // nagyon fontos, mert ez hívódik meg, amikor vizsgáljuk egy Vásárló létezését
     // enélkül nem fogja megtalálni a Vásárlót
     @Override
@@ -65,25 +74,8 @@ public class Vasarlo {
         Vasarlo v = ((Vasarlo) o);
         return v.getNev().equals(this.nev) && v.getPassword().equals(v.password);
     }
-
-    /**
-     * @return the alkatreszek
-     */
-//    public static Vector getAlkatreszek() {
-//        return alkatreszek;
-//    }
-//
-//    /**
-//     * @param aAlkatreszek the alkatreszek to set
-//     */
-//    public static void setAlkatreszek(Vector aAlkatreszek) {
-//        alkatreszek = aAlkatreszek;
-//    }
-//
-//    /**
-//     * @return the lehetsegesAlkatreszek
-//     */
-//    public static Vector getLehetsegesAlkatreszek() {
-//        return lehetsegesAlkatreszek;
-//    }
+    
+    public void Vasarol(Alkatresz a){
+        this.alkatreszek.add(a);
+    }
 }

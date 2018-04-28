@@ -10,6 +10,17 @@ package Model;
  * @author Cressida
  */
 public class Alkatresz {
+    
+    private String nev;
+    private int ar;
+    
+    
+    public Alkatresz(String nev, int ar)
+    {
+        this.nev = nev;
+        this.ar = ar;
+    }
+    
          /**
      * @return the nev
      */
@@ -35,16 +46,6 @@ public class Alkatresz {
      * @param ar the ar to set
      */
     public void setAr(int ar) {
-        this.ar = ar;
-    }
-    
-    private String nev;
-    private int ar;
-    
-    
-    public Alkatresz(String nev, int ar)
-    {
-        this.nev = nev;
         this.ar = ar;
     }
 }

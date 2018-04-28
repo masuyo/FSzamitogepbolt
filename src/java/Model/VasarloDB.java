@@ -18,9 +18,23 @@ public class VasarloDB {
     public VasarloDB(){
         
        this.vasarlok = new ArrayList<>(); 
-       this.vasarlok.add(new Vasarlo("Babayaga","aaa"));
-       this.vasarlok.add(new Vasarlo("Lolita","aaa"));
-       this.vasarlok.add(new Vasarlo("Bobby","aaa"));
+       
+       Vasarlo V1 = new Vasarlo("Babayaga","aaa");
+       V1.Vasarol(Raktar.getAlkatreszValasztek().get(0));
+       V1.Vasarol(Raktar.getAlkatreszValasztek().get(1));
+       this.vasarlok.add(V1);
+       
+       Vasarlo V2 = new Vasarlo("Lolita","aaa");
+       V2.Vasarol(Raktar.getAlkatreszValasztek().get(3));
+       V2.Vasarol(Raktar.getAlkatreszValasztek().get(1));
+       this.vasarlok.add(V2);
+       
+       Vasarlo V3 = new Vasarlo("Bobby","aaa");
+       V3.Vasarol(Raktar.getAlkatreszValasztek().get(3));
+       V3.Vasarol(Raktar.getAlkatreszValasztek().get(2));
+       V3.Vasarol(Raktar.getAlkatreszValasztek().get(0));
+       V3.Vasarol(Raktar.getAlkatreszValasztek().get(1));
+       this.vasarlok.add(V3);
     }
 
     // adatrejtés miatt csekkolom így, hogy kívülről ne legyen fölöslegesen elérhető ennek
