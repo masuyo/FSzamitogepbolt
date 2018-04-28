@@ -106,7 +106,7 @@ public class RegistrationServlet extends HttpServlet {
                 }else{
                     
                     PrintWriter out = response.getWriter();
-                    response.sendError(305, "Ilyen felhasználó már létezik!");
+                    response.sendError(417, "Ilyen felhasználó már létezik!");
                 }
     }
 
