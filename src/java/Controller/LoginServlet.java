@@ -78,7 +78,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession(); // session generálása loginjoghoz
         response.setContentType("text/html;charset=UTF-8");
         
-        VasarloDB VDB; // itt tároljuk az eddig létrejött felhasználókat
+        VasarloDB VDB = null; // itt tároljuk az eddig létrejött felhasználókat
         
         /* A sessiont arra használjuk, hogy az oldalon való navigálás közben legyen hova tárolni a
         navigáláshoz szükséges dolgokat - hiszen pl. ha itt simán újrapéldányosítom a VásárlóAdatbázist, miután valaki

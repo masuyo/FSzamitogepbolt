@@ -57,6 +57,14 @@ public class Vasarlo {
     public String getPassword() {
         return password;
     }
+    
+    // nagyon fontos, mert ez hívódik meg, amikor vizsgáljuk egy Vásárló létezését
+    // enélkül nem fogja megtalálni a Vásárlót
+    @Override
+    public boolean equals(Object o) {
+        Vasarlo v = ((Vasarlo) o);
+        return v.getNev().equals(this.nev) && v.getPassword().equals(v.password);
+    }
 
     /**
      * @return the alkatreszek
