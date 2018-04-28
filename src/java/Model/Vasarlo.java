@@ -10,6 +10,20 @@ package Model;
  * @author Cressida
  */
 public class Vasarlo {
+
+    /**
+     * @param nev the nev to set
+     */
+    public void setNev(String nev) {
+        this.nev = nev;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
         private String nev;
     private String password;
 //    private static Vector alkatreszek = new Vector();
