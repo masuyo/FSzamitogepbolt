@@ -23,7 +23,15 @@ public class VasarloDB {
        this.vasarlok.add(new Vasarlo("Bobby","aaa"));
     }
 
+    // adatrejtés miatt csekkolom így, hogy kívülről ne legyen fölöslegesen elérhető ennek
+    // az osztálynak a listája, amikor csak arra az információra van szükségem, hogy tartalmazza-e
+    // az általam keresett Vásárló objektumot
     public boolean IsVasarloExist(Vasarlo v){
         return this.vasarlok.contains(v);
+    }
+    
+    // itt addolom a Vásárlók listámhoz az új Vásárlókat, a regisztrációnál van rá szükség
+    public void AddVasarlo(Vasarlo v){
+        this.vasarlok.add(v);
     }
 }
