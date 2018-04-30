@@ -9,6 +9,7 @@ import Model.Vasarlo;
 import Model.VasarloDB;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -103,6 +104,8 @@ public class LoginServlet extends HttpServlet {
         if (VDB.IsVasarloExist(V1)) {
             // megtaláltam az adatbázisban a felhasználót, ezért sessiont kap
             session.setAttribute("jelenlegi_vasarlo", V1);
+            // rendezem a Vásárlók listáját
+            Collections.sort(VDB.getVasarlok());
             // sessionbe mentem az adatbázist, hogy majd elő tudjam hívni később
             session.setAttribute("regisztraltVasarlok", VDB);
             // mivel sikeres a login, elküldi a Vásárlót a bejelentkezett oldalára

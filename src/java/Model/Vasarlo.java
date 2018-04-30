@@ -12,7 +12,9 @@ import java.util.Vector;
  *
  * @author Cressida
  */
-public class Vasarlo {
+// implementálja a Comparable interfészt, hogy meg tudjam majd hívni a DB Vasarlo listajara
+// a Collections.sort(list) rendezést
+public class Vasarlo implements Comparable<Vasarlo>{
     
     private String nev;
     private String password;
@@ -71,11 +73,23 @@ public class Vasarlo {
     // enélkül nem fogja megtalálni a Vásárlót
     @Override
     public boolean equals(Object o) {
+        
         Vasarlo v = ((Vasarlo) o);
         return v.getNev().equals(this.nev) && v.getPassword().equals(v.password);
+        
+    }
+    
+    // Comparable interfészhez szükséges, itt adom meg, hogy név alapján rendezzen
+    @Override
+    public int compareTo(Vasarlo other) {
+        
+        int compareint = this.nev.compareTo(other.nev);;
+        return compareint;
+        
     }
     
     public void Vasarol(Alkatresz a){
+        
         this.alkatreszek.add(a);
     }
 }

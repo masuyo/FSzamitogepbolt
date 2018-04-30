@@ -9,6 +9,7 @@ import Model.Vasarlo;
 import Model.VasarloDB;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -99,6 +100,8 @@ public class RegistrationServlet extends HttpServlet {
                     // elmentem az adatbázisban
                     session.setAttribute("jelenlegi_vasarlo", V1);
                     VDB.AddVasarlo(V1);
+                    // rendezem a vásárlók listáját
+                    Collections.sort(VDB.getVasarlok());
                     // frissítem a sessionben tárolt adatbázist, mivel abban változás történt
                     session.setAttribute("regisztraltVasarlok", VDB);
                     // megfelelő jsp aloldalra navigál
