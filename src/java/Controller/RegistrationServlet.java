@@ -97,9 +97,9 @@ public class RegistrationServlet extends HttpServlet {
                 // az új Vásárló objektumom összevetem az adatbázis tartalmával
                 if (!VDB.IsVasarloExist(V1)) {
                     // korábban nem volt ilyen felhasználó, ezért sessiont kap, és
-                    // elmentem az adatbázisban
-                    
-                    VDB.AddVasarlo(V1);                 
+                    // elmentem az adatbázisban                    
+                    VDB.AddVasarlo(V1);
+                    // ez visszakeresés a referencia szerinti átadás miatt nem biztos, hogy szükséges, de inkább biztosra mentem
                     Vasarlo currentVasarlo = VDB.getCurrentVasarlo(V1);
                     session.setAttribute("jelenlegi_vasarlo", currentVasarlo);
                     // rendezem a vásárlók listáját
