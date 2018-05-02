@@ -52,5 +52,7 @@
                 out.print("Nincs megjeleníthető termék.");
             } %>
         </table>
+        <br>
+        <a href="LogOutServlet">Kijelentkezés</a> 
     </body>
 </html>
