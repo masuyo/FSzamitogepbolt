@@ -81,6 +81,7 @@ public class AddAlkatreszToRaktarServlet extends HttpServlet {
         Alkatresz tempAlkatresz = new Alkatresz(request.getParameter("nev"),parseInt(request.getParameter("ar")));
         
         Raktar.AddNewAlkatresz(tempAlkatresz);
+        response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
     }
 
     /**

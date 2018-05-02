@@ -37,7 +37,7 @@
             <%}%>
         </table>
         <h2>Vásárlólista</h2>
-            <table>
+        <table>
             <tr>
                 <td>Termék neve</td>
                 <td>Termék ára</td>
@@ -54,6 +54,22 @@
             } %>
         </table>
         <br>
+        <h2>Termékek listája (Raktár)</h2>
+        <table>
+            <tr>
+                <td>Termék neve</td>
+                <td>Termék ára</td>
+            </tr>
+            <% if(Raktar.getAlkatreszValasztek().size() > 0) { 
+                for (Alkatresz alkatresz : Raktar.getAlkatreszValasztek()) { %>
+            <tr>
+                <td><%=alkatresz.getNev()%></td>
+                <td><%=alkatresz.getAr()%></td>
+            </tr>
+            <%}} else {
+                out.print("Nincs megjeleníthető termék.");
+            } %>
+        </table>
         <h2>Új alkatrész felvitele a raktárba</h2>
         <form action="AddAlkatreszToRaktarServlet" method="POST">
             <label for="alkatreszNev">Név:</label> <input type="text" name="nev" id="alkatreszNev"><br>
