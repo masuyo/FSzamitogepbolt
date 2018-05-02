@@ -65,12 +65,16 @@ public class DeleteAlkatreszServlet extends HttpServlet {
         HttpSession session = request.getSession();
         VasarloDB VDB = (VasarloDB)session.getAttribute("regisztraltVasarlok");
         Vasarlo currentVasarlo = (Vasarlo)session.getAttribute("jelenlegi_vasarlo");
+        
+        /* csak név alapján csekkolom az adott alkatrészt, mivel ID-t nem kaptak
+         * <td><a href="DeleteAlkatreszServlet?alkatresz=<%= aresz.getNev()%>">Törlés</a></td>
+         * a profile.jsp-n ebből itt adom meg, hogy az alkatresz parameter mit tartalmazzon (az alkatrész nevét)
+         */
         Alkatresz A1 = new Alkatresz(request.getParameter("alkatresz"),0);
         VDB.RemoveAlkatresz(currentVasarlo,A1);
         
-        session.setAttribute("regisztraltVasarlok", VDB);
-        Vasarlo V2 = VDB.getCurrentVasarlo(currentVasarlo);
-        session.setAttribute("jelenlegi_vasarlo", V2);
+        //session.setAttribute("regisztraltVasarlok", VDB);
+
         response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
     }
 

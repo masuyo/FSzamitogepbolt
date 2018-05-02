@@ -49,6 +49,7 @@ public class Alkatresz implements Comparable<Alkatresz> {
         this.ar = ar;
     }
 
+    // Alkatresz visszakereséséhez szükséges, név alapján ellenőrzi, hogy megegyezik-e a megadott objektummal
     @Override
     public boolean equals(Object o) {
         
@@ -59,6 +60,7 @@ public class Alkatresz implements Comparable<Alkatresz> {
         
     }
     
+    // Comparable interfész implementálása, név szerinti sorbarendezéshez szükséges
     @Override
     public int compareTo(Alkatresz o) {
         

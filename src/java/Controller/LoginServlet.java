@@ -102,16 +102,29 @@ public class LoginServlet extends HttpServlet {
         
         // megnézi, hogy a VásárlóAdatbázis Vásárlók listájában talált-e a login adatoknak megfelelő usert
         if (VDB.IsVasarloExist(tempVasarlo)) {
-            // önkínzó vagyok, így kimentem még a vásárló saját listáját is az adatbázisból
+
+            /* a jelenlegi vásárlót kikeresem az adatbázisból, hogy könnyebb legyen módosítani
+            * nem szép, de kisebb szopás (referencia szerinti átadás miatt nem kell mindig felülcsapnom)
+            */
             Vasarlo currentVasarlo = VDB.getCurrentVasarlo(tempVasarlo);
+            
+            /* rendezem a vásárló alkatrészeit abc sorrendben (ehhez az Alkatresz orsztály is
+            implementálja a Comparable interfészt, és felülírtam a compareTo metódust hozzá,
+            hogy a számomra megfelelő paraméterek (név) alapján hasonlítson össze a sorbarendezésnél
+            két Alkatrész objektumot
+            */
             Collections.sort(currentVasarlo.getAlkatreszek());
             //V1.setAlkatreszek(VDB.getCurrentAlkatreszek(V1));
-            // megtaláltam az adatbázisban a felhasználót, ezért sessiont kap
+            
+            // a jelenlegi felhasználó sessiont kap
             session.setAttribute("jelenlegi_vasarlo", currentVasarlo);
-            // rendezem a Vásárlók listáját
+            
+            // rendezem a Vásárlók listáját név szerint, ugyanaz a módszer, mint az Alkatreszeknél
             Collections.sort(VDB.getVasarlok());
-            // sessionbe mentem az adatbázist, hogy majd elő tudjam hívni később
+            
+            // sessionbe mentem az adatbázist, hogy majd elő tudjam hívni később, mikor módosítani szeretném
             session.setAttribute("regisztraltVasarlok", VDB);
+            
             // mivel sikeres a login, elküldi a Vásárlót a bejelentkezett oldalára
             response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
             //RequestDispatcher rd = request.getRequestDispatcher("/profile.jsp");

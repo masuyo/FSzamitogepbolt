@@ -98,8 +98,10 @@ public class RegistrationServlet extends HttpServlet {
                 if (!VDB.IsVasarloExist(V1)) {
                     // korábban nem volt ilyen felhasználó, ezért sessiont kap, és
                     // elmentem az adatbázisban
-                    session.setAttribute("jelenlegi_vasarlo", V1);
-                    VDB.AddVasarlo(V1);
+                    
+                    VDB.AddVasarlo(V1);                 
+                    Vasarlo currentVasarlo = VDB.getCurrentVasarlo(V1);
+                    session.setAttribute("jelenlegi_vasarlo", currentVasarlo);
                     // rendezem a vásárlók listáját
                     Collections.sort(VDB.getVasarlok());
                     // frissítem a sessionben tárolt adatbázist, mivel abban változás történt

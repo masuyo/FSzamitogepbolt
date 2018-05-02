@@ -36,7 +36,7 @@
             </tr>
             <%}%>
         </table>
-        <h2>Megvásárolt alkatrészek</h2>
+        <h2>Vásárlólista</h2>
             <table>
             <tr>
                 <td>Termék neve</td>
@@ -54,6 +54,9 @@
             } %>
         </table>
         <br>
-        <a href="LogOutServlet">Kijelentkezés</a> 
+        <h2></h2>
+        <form action="LogOutServlet" >
+            <input type="submit" value="Kijelentkezés">
+        </form>
     </body>
 </html>

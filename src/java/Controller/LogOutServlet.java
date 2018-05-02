@@ -52,6 +52,13 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+                    HttpSession session = request.getSession();
+            if (session.getAttribute("jelenlegi_vasarlo") != null) {
+                session.removeAttribute("jelenlegi_vasarlo");
+                response.sendRedirect("index.html");
+            }else{
+            
+            }
     }
 
     /**
@@ -66,6 +73,13 @@ public class LogOutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+//        HttpSession session = request.getSession();
+//        if (session.getAttribute("jelenlegi_vasarlo") != null) {
+//            session.removeAttribute("jelenlegi_vasarlo");
+//            response.sendRedirect("index.html");
+//        }else{
+//            
+//        }
     }
 
     /**
