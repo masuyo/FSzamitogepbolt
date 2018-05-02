@@ -36,4 +36,10 @@ public class Raktar {
     public static ArrayList<Alkatresz> getAlkatreszValasztek() {
         return alkatreszValasztek;
     }
+    
+    public static Alkatresz getAlkatresz(Alkatresz a){
+        
+        int index = getAlkatreszValasztek().indexOf(a);
+        return getAlkatreszValasztek().get(index);
+    }
 }

@@ -20,6 +20,10 @@
         <servlet-name>AddAlkatreszToRaktarServlet</servlet-name>
         <servlet-class>Controller.AddAlkatreszToRaktarServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddAlkatreszToKosarServlet</servlet-name>
+        <servlet-class>Controller.AddAlkatreszToKosarServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AddAlkatreszToRaktarServlet</servlet-name>
         <url-pattern>/AddAlkatreszToRaktarServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddAlkatreszToKosarServlet</servlet-name>
+        <url-pattern>/AddAlkatreszToKosarServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

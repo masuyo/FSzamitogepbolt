@@ -6,6 +6,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Vector;
 
 /**
@@ -91,6 +92,7 @@ public class Vasarlo implements Comparable<Vasarlo>{
     public void Vasarol(Alkatresz a){
         
         this.alkatreszek.add(a);
+        Collections.sort(this.alkatreszek);
     }
     
     public void Torol(Alkatresz a){
