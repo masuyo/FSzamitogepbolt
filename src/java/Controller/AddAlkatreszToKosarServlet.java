@@ -35,19 +35,6 @@ public class AddAlkatreszToKosarServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet AddAlkatreszToKosarServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet AddAlkatreszToKosarServlet at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,29 +50,6 @@ public class AddAlkatreszToKosarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        HttpSession session = request.getSession();
-        VasarloDB VDB = (VasarloDB)session.getAttribute("regisztraltVasarlok");
-        Vasarlo currentVasarlo = (Vasarlo)session.getAttribute("jelenlegi_vasarlo");
-        
-        /* csak név alapján csekkolom az adott alkatrészt, mivel ID-t nem kaptak
-         * <td><a href="DeleteAlkatreszServlet?alkatresz=<%= aresz.getNev()%>">Törlés</a></td>
-         * a profile.jsp-n ebből itt adom meg, hogy az alkatresz parameter mit tartalmazzon (az alkatrész nevét)
-         */
-        //Alkatresz tempAlkatresz = new Alkatresz(request.getParameter("alkatreszNev"),parseInt(request.getParameter("alkatreszAr")));
-        Alkatresz tempAlkatresz = new Alkatresz(request.getParameter("alkatresz"),0);
-        Alkatresz A1 = Raktar.getAlkatresz(tempAlkatresz);
-        //int db = parseInt(request.getParameter("db"));
-        
-        for (int i = 0; i < 1; i++) {
-            
-            currentVasarlo.Vasarol(A1);
-            
-        }
-        //VDB.RemoveAlkatresz(currentVasarlo,A1);
-        
-        //session.setAttribute("regisztraltVasarlok", VDB);
-
-        response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
     }
 
     /**
@@ -99,7 +63,31 @@ public class AddAlkatreszToKosarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                processRequest(request, response);
+                HttpSession session = request.getSession();
+                VasarloDB VDB = (VasarloDB)session.getAttribute("regisztraltVasarlok");
+                Vasarlo currentVasarlo = (Vasarlo)session.getAttribute("jelenlegi_vasarlo");
+        
+                /* csak név alapján csekkolom az adott alkatrészt, mivel ID-t nem kaptak
+                 *  <form action="AddAlkatreszToKosarServlet?alkatresz=<%= alkatresz.getNev()%>" method="POST">
+                 * a profile.jsp-n ebből itt adom meg, hogy az alkatresz parameter mit tartalmazzon (az alkatrész nevét)
+                 */
+                Alkatresz tempAlkatresz = new Alkatresz(request.getParameter("alkatresz"),0);
+                
+                // kinyerem a Raktárból az eredeti objektumot
+                Alkatresz A1 = Raktar.getAlkatresz(tempAlkatresz);
+
+                // request.getParameter(db) az input type neve a profile.jsp-n db, így kérem be az értékét
+                // <td><input type="number" name="db" value="1"></td>
+                int db = parseInt(request.getParameter("db"));
+
+                for (int i = 0; i < db; i++) {
+
+                    currentVasarlo.Vasarol(A1);
+
+                }
+
+                response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
     }
 
     /**

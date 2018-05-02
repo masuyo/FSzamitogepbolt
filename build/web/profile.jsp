@@ -63,11 +63,14 @@
             </tr>
             <% if(Raktar.getAlkatreszValasztek().size() > 0) { 
                 for (Alkatresz alkatresz : Raktar.getAlkatreszValasztek()) { %>
-            <tr>
-                <td><%=alkatresz.getNev()%></td>
-                <td><%=alkatresz.getAr()%></td>
-                <td><input type="number" name="db" placeholder="1"></td>
-                <td><a href="AddAlkatreszToKosarServlet?alkatresz=<%= alkatresz.getNev()%>">Kosárba</a></td>
+                <tr>
+                <form action="AddAlkatreszToKosarServlet?alkatresz=<%= alkatresz.getNev()%>" method="POST">
+                    <td name="alkatreszNev"><%=alkatresz.getNev()%></td>
+                    <td name="alkatreszAr"><%=alkatresz.getAr()%></td>
+                    <td><input type="number" name="db" value="1"></td>
+                    <td><input type="submit" value="Kosárba"></td>
+                </form>
+                </tr>
             </tr>
             <%}} else {
                 out.print("Nincs megjeleníthető termék.");
