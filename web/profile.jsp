@@ -54,7 +54,12 @@
             } %>
         </table>
         <br>
-        <h2></h2>
+        <h2>Új alkatrész felvitele a raktárba</h2>
+        <form action="AddAlkatreszToRaktarServlet" method="POST">
+            <label for="alkatreszNev">Név:</label> <input type="text" name="nev" id="alkatreszNev"><br>
+            <label for="alkatreszAr">Ár: </label> <input type="text" name="ar" id="alkatreszAr"><br>
+            <input type="submit" value="Feltölt">
+        </form>
         <form action="LogOutServlet" >
             <input type="submit" value="Kijelentkezés">
         </form>

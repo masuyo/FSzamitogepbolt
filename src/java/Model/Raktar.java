@@ -24,6 +24,12 @@ public class Raktar {
        
     }
     
+    public static void AddNewAlkatresz(Alkatresz a){
+        
+        getAlkatreszValasztek().add(a);
+        
+    }
+    
         /**
      * @return the alkatreszValasztek
      */
