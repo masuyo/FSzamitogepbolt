@@ -20,13 +20,14 @@
         </style>
     </head>
     <body>
-        <h1>Vásárlók listája</h1>
+        
         <%
             VasarloDB VDB = (VasarloDB) session.getAttribute("regisztraltVasarlok");
             Vasarlo current = (Vasarlo) session.getAttribute("jelenlegi_vasarlo");
         %>
-        
-        <h2><%=VDB.getVasarlok().size()%> vásárló van</h2>
+        <h1>Szia <%=current.getNev()%>!</h1>
+        <h2>Vásárlók listája</h2>
+        <h3><%=VDB.getVasarlok().size()%> vásárló van</h3>
         <table>
 
             <% for (Vasarlo v : VDB.getVasarlok()) { %>
@@ -34,6 +35,22 @@
                 <td><%=v.getNev()%></td>
             </tr>
             <%}%>
+        </table>
+        <h2>Megvásárolt alkatrészek</h2>
+            <table>
+            <tr>
+                <td>Termék neve</td>
+                <td>Termék ára</td>
+            </tr>
+            <% if(current.getAlkatreszek().size() > 0) { 
+                for (Alkatresz a : current.getAlkatreszek()) { %>
+            <tr>
+                <td><%=a.getNev()%></td>
+                <td><%=a.getAr()%></td>
+            </tr>
+            <%}} else {
+                out.print("Nincs megjeleníthető termék.");
+            } %>
         </table>
     </body>
 </html>

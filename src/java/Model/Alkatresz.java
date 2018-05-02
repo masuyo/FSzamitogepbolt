@@ -9,7 +9,7 @@ package Model;
  *
  * @author Cressida
  */
-public class Alkatresz {
+public class Alkatresz implements Comparable<Alkatresz> {
     
     private String nev;
     private int ar;
@@ -47,5 +47,11 @@ public class Alkatresz {
      */
     public void setAr(int ar) {
         this.ar = ar;
+    }
+
+    @Override
+    public int compareTo(Alkatresz o) {
+        int compareint = this.nev.compareTo(o.nev);
+        return compareint;
     }
 }

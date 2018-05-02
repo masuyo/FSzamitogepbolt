@@ -83,7 +83,7 @@ public class Vasarlo implements Comparable<Vasarlo>{
     @Override
     public int compareTo(Vasarlo other) {
         
-        int compareint = this.nev.compareTo(other.nev);;
+        int compareint = this.nev.compareTo(other.nev);
         return compareint;
         
     }

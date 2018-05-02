@@ -102,6 +102,9 @@ public class LoginServlet extends HttpServlet {
         
         // megnézi, hogy a VásárlóAdatbázis Vásárlók listájában talált-e a login adatoknak megfelelő usert
         if (VDB.IsVasarloExist(V1)) {
+            // önkínzó vagyok, így kimentem még a vásárló saját listáját is az adatbázisból
+            Collections.sort(VDB.getCurrentAlkatreszek(V1));
+            V1.setAlkatreszek(VDB.getCurrentAlkatreszek(V1));
             // megtaláltam az adatbázisban a felhasználót, ezért sessiont kap
             session.setAttribute("jelenlegi_vasarlo", V1);
             // rendezem a Vásárlók listáját
