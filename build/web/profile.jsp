@@ -45,9 +45,9 @@
             <% if(current.getAlkatreszek().size() > 0) { 
                 for (Alkatresz aresz : current.getAlkatreszek()) { %>
             <tr>
-                <td name="alkatreszNev"><%=aresz.getNev()%></td>
-                <td name="alkatreszAr"><%=aresz.getAr()%></td>
-                <td><a href="DeleteAlkatreszServlet">Törlés</a></td>
+                <td><%=aresz.getNev()%></td>
+                <td><%=aresz.getAr()%></td>
+                <td><a href="DeleteAlkatreszServlet?alkatresz=<%= aresz.getNev()%>">Törlés</a></td>
             </tr>
             <%}} else {
                 out.print("Nincs megjeleníthető termék.");

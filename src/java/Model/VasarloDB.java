@@ -93,8 +93,7 @@ public class VasarloDB {
             if (elem.equals(v)){
                 
                     V1 = elem;
-            }
-            
+            }           
         }               
         return V1;
     }

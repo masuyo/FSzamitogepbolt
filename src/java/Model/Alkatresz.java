@@ -54,13 +54,16 @@ public class Alkatresz implements Comparable<Alkatresz> {
         
         Alkatresz a = ((Alkatresz) o);
         
-        return a.getNev().equals(this.nev) && (a.getAr()== this.ar);
+        //return a.getNev().equals(this.nev) && (a.getAr()== this.ar);
+        return a.getNev().equals(this.nev);
         
     }
     
     @Override
     public int compareTo(Alkatresz o) {
+        
         int compareint = this.nev.compareTo(o.nev);
+        
         return compareint;
     }
 }

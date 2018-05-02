@@ -65,7 +65,7 @@ public class DeleteAlkatreszServlet extends HttpServlet {
         HttpSession session = request.getSession();
         VasarloDB VDB = (VasarloDB)session.getAttribute("regisztraltVasarlok");
         Vasarlo currentVasarlo = (Vasarlo)session.getAttribute("jelenlegi_vasarlo");
-        Alkatresz A1 = new Alkatresz("videokartya",1000);
+        Alkatresz A1 = new Alkatresz(request.getParameter("alkatresz"),0);
         VDB.RemoveAlkatresz(currentVasarlo,A1);
         
         session.setAttribute("regisztraltVasarlok", VDB);
