@@ -5,12 +5,17 @@
  */
 package Controller;
 
+import Model.Alkatresz;
+import Model.Vasarlo;
+import Model.VasarloDB;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,19 +34,19 @@ public class DeleteAlkatreszServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DeleteAlkatreszServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DeleteAlkatreszServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+//        response.setContentType("text/html;charset=UTF-8");
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet DeleteAlkatreszServlet</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet DeleteAlkatreszServlet at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,6 +62,16 @@ public class DeleteAlkatreszServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        HttpSession session = request.getSession();
+        VasarloDB VDB = (VasarloDB)session.getAttribute("regisztraltVasarlok");
+        Vasarlo currentVasarlo = (Vasarlo)session.getAttribute("jelenlegi_vasarlo");
+        Alkatresz A1 = new Alkatresz("videokartya",1000);
+        VDB.RemoveAlkatresz(currentVasarlo,A1);
+        
+        session.setAttribute("regisztraltVasarlok", VDB);
+        Vasarlo V2 = VDB.getCurrentVasarlo(currentVasarlo);
+        session.setAttribute("jelenlegi_vasarlo", V2);
+        response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
     }
 
     /**

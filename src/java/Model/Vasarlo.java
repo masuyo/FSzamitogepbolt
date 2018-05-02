@@ -75,7 +75,7 @@ public class Vasarlo implements Comparable<Vasarlo>{
     public boolean equals(Object o) {
         
         Vasarlo v = ((Vasarlo) o);
-        return v.getNev().equals(this.nev) && v.getPassword().equals(v.password);
+        return v.getNev().equals(this.nev) && v.getPassword().equals(this.password);
         
     }
     
@@ -91,5 +91,22 @@ public class Vasarlo implements Comparable<Vasarlo>{
     public void Vasarol(Alkatresz a){
         
         this.alkatreszek.add(a);
+    }
+    
+    public void Torol(Alkatresz a){
+        
+        Alkatresz A1 = null;
+        for (Alkatresz A : this.alkatreszek){
+          
+            if (A.equals(a)) {
+                  
+                A1 = A;
+            }
+        }
+        this.alkatreszek.remove(A1);
+//        int i;
+//        i = this.alkatreszek.indexOf(a);
+//        Alkatresz A1 = this.alkatreszek.get(i);
+//        this.alkatreszek.remove(A1);
     }
 }

@@ -98,15 +98,16 @@ public class LoginServlet extends HttpServlet {
         }
         
         // a formküldésből kapott infókat bementem egy Vásárló objektumba, hogy össze tudjam vetni az adatbázisommal
-        Vasarlo V1 = new Vasarlo(request.getParameter("username"),request.getParameter("password"));
+        Vasarlo tempVasarlo = new Vasarlo(request.getParameter("username"),request.getParameter("password"));
         
         // megnézi, hogy a VásárlóAdatbázis Vásárlók listájában talált-e a login adatoknak megfelelő usert
-        if (VDB.IsVasarloExist(V1)) {
+        if (VDB.IsVasarloExist(tempVasarlo)) {
             // önkínzó vagyok, így kimentem még a vásárló saját listáját is az adatbázisból
-            Collections.sort(VDB.getCurrentAlkatreszek(V1));
-            V1.setAlkatreszek(VDB.getCurrentAlkatreszek(V1));
+            Vasarlo currentVasarlo = VDB.getCurrentVasarlo(tempVasarlo);
+            Collections.sort(currentVasarlo.getAlkatreszek());
+            //V1.setAlkatreszek(VDB.getCurrentAlkatreszek(V1));
             // megtaláltam az adatbázisban a felhasználót, ezért sessiont kap
-            session.setAttribute("jelenlegi_vasarlo", V1);
+            session.setAttribute("jelenlegi_vasarlo", currentVasarlo);
             // rendezem a Vásárlók listáját
             Collections.sort(VDB.getVasarlok());
             // sessionbe mentem az adatbázist, hogy majd elő tudjam hívni később

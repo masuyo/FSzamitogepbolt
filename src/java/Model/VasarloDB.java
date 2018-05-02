@@ -68,4 +68,34 @@ public class VasarloDB {
         i = this.vasarlok.indexOf(v);
         return this.vasarlok.get(i).getAlkatreszek();
     }
+    
+    public void RemoveAlkatresz(Vasarlo v, Alkatresz a){
+        
+//        Vasarlo V1 = null;
+//        for (Vasarlo V : this.vasarlok){
+//        
+//            if (V.equals(v)) {
+//                
+//                V.Torol(a);
+//            }
+//        }
+        int i;
+        i = this.vasarlok.indexOf(v);
+        this.vasarlok.get(i).Torol(a);
+        
+    }
+    
+    public Vasarlo getCurrentVasarlo(Vasarlo v) {
+        
+        Vasarlo V1 = null;
+        for (Vasarlo elem : this.vasarlok) {
+            
+            if (elem.equals(v)){
+                
+                    V1 = elem;
+            }
+            
+        }               
+        return V1;
+    }
 }

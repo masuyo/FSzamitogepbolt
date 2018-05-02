@@ -4,13 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/web/index.html</file>
+            <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Controller/LogOutServlet.java</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/web/profile.jsp</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Controller/RegistrationServlet.java</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Model/Alkatresz.java</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Model/Vasarlo.java</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Model/Raktar.java</file>
+            <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Model/VasarloDB.java</file>
             <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Controller/LoginServlet.java</file>
+            <file>file:/C:/Users/Cressida/Documents/NetBeansProjects/FSzamitogepbolt/src/java/Controller/DeleteAlkatreszServlet.java</file>
         </group>
     </open-files>
 </project-private>
